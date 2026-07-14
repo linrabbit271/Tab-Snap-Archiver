@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 320px; padding: 16px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f8f9fa; color: #333; }
+    h4 { margin: 0 0 16px 0; font-size: 15px; text-align: center; color: #1a73e8; display: flex; align-items: center; justify-content: center; gap: 8px;}
+    
+    .form-group { margin-bottom: 12px; }
+    label { display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px; color: #555; }
+    input[type="text"] { width: 100%; padding: 8px; border: 1px solid #ced4da; border-radius: 4px; font-size: 13px; box-sizing: border-box; outline: none; }
+    input[type="text"]:focus { border-color: #80bdff; box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); }
+    
+    .checkbox-group { background: #fff; padding: 12px; border-radius: 6px; border: 1px solid #e9ecef; margin-bottom: 16px; }
+    .checkbox-group label { display: flex; align-items: center; font-weight: normal; margin-bottom: 8px; cursor: pointer; }
+    .checkbox-group label:last-child { margin-bottom: 0; }
+    .checkbox-group input { margin-right: 8px; width: 16px; height: 16px; cursor: pointer; }
+
+    button { width: 100%; padding: 10px; cursor: pointer; border: none; border-radius: 6px; font-weight: bold; font-size: 13px; transition: all 0.2s; color: white; margin-bottom: 8px;}
+    #startBtn { background-color: #007bff; }
+    #startBtn:hover { background-color: #0056b3; }
+    #startBtn:disabled { background-color: #a0cbfc; cursor: not-allowed; }
+    
+    #downloadBtn { background-color: #28a745; display: none; }
+    #downloadBtn:hover { background-color: #218838; }
+
+    #status { font-size: 12px; text-align: center; margin-top: 10px; min-height: 18px; color: #d93025; font-weight: bold;}
+    
+    .tip { font-size: 11px; color: #6c757d; margin-top: 12px; text-align: justify; line-height: 1.4; background: #e9ecef; padding: 8px; border-radius: 4px;}
+  </style>
+</head>
+<body>
+  <h4>📷 AAT 自动截图建档助手</h4>
+  
+  <div class="form-group">
+    <label for="mainFolder">主文件夹名称 (如: 客户名称或日期)</label>
+    <input type="text" id="mainFolder" placeholder="例如: 2026-06-27-香港出货" value="AAT_批量截图">
+  </div>
+
+  <label>请选择需要存放的分类目录 (可多选)：</label>
+  <div class="checkbox-group">
+    <label><input type="checkbox" id="chkRCS" checked> 2-入航司仓</label>
+    <label><input type="checkbox" id="chkDEP" checked> 3-已起飞</label>
+  </div>
+
+  <button id="startBtn">▶ 开始遍历截图</button>
+  <button id="downloadBtn">⬇ 导出并保存所有图片</button>
+  
+  <div id="status">等待开始...</div>
+
+  <div class="tip">
+    <b>重要提示：</b><br>
+    1. 截图期间请勿切换浏览器标签页，保持页面前台运行。<br>
+    2. 为了避免浏览器弹出十几个“另存为”窗口，请确保您的 Chrome 设置中<b>关闭了</b>“下载前询问每个文件的保存位置”选项。
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

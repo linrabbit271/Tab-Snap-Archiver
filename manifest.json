@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "AAT 批量截图与建档助手",
+  "version": "1.0",
+  "description": "自动遍历 AAT 运单选项卡进行截图，并按指定文件夹结构自动保存。",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://*.aat.com.hk/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
